@@ -35,14 +35,18 @@ export default function TerminalKey({
       disabled={disabled}
       onClick={onClick}
       className={cn(
-        "bg-[#222222] text-[#e3e3e3] border border-[#141414] border-t-[#606060]/60 shadow-[inset_0_1px_1px_rgba(255,255,255,0.22),0_3px_6px_rgba(0,0,0,0.65)] flex items-center justify-center relative active:translate-y-0.5 transition-transform text-[32px] leading-none",
+        "bg-[#1c1c1e] text-[#ededed] font-pixel flex items-center justify-center relative active:translate-y-0.5 transition-transform text-[32px] leading-none select-none cursor-pointer overflow-hidden",
+        // Tactile button with grayish top/left tip bevels & authentic depth
+        "border-t-[1.5px] border-l-[1.5px] border-t-[#767676] border-l-[#555555] border-r border-b border-r-[#101010] border-b-[#080808]",
+        "shadow-[inset_1px_1px_1px_rgba(255,255,255,0.25),inset_-1px_-1px_2px_rgba(0,0,0,0.9),0_4px_8px_rgba(0,0,0,0.85)]",
         isPay
           ? "rounded-lg py-[2.5px] px-2 w-max justify-self-end whitespace-nowrap"
           : "w-12.25 h-9.75 rounded-lg",
         className,
       )}
     >
-      <div className="absolute inset-0 opacity-25 pointer-events-none" />
+      {/* Subtle tactile surface noise grain */}
+      <div className="absolute inset-0 noise-texture opacity-25 mix-blend-overlay pointer-events-none rounded-[inherit]" />
       <span className="-translate-y-px relative z-10">{label}</span>
     </button>
   );

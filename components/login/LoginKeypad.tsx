@@ -31,6 +31,9 @@ export function LoginKeypad({ onKeyPress }: LoginKeypadProps) {
         transition={{ type: "spring", stiffness: 220, damping: 22 }}
         className="w-full max-w-[340px] bg-brand-primary rounded-b-[32px] pt-3 pb-5 px-8 relative shadow-[0_22px_45px_rgba(0,0,0,0.32)] flex flex-col items-center overflow-hidden"
       >
+        {/* Authentic tactile stipple noise overlay */}
+        <div className="absolute inset-0 noise-texture opacity-48 mix-blend-overlay pointer-events-none z-0" />
+
         {/* Subtle inner bezel outline */}
         <div className="absolute inset-x-2 bottom-2 top-0 rounded-b-[24px] border-b border-x border-black/30 pointer-events-none z-10" />
 

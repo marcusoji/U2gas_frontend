@@ -2,6 +2,7 @@ import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
 import type { UserProfile } from "@/types";
+import { dummyUserProfile } from "@/data";
 
 interface AuthState {
   isLoggedIn: boolean;
@@ -9,15 +10,11 @@ interface AuthState {
   login: (user?: UserProfile) => void;
   logout: () => void;
   updateUser: (data: Partial<UserProfile>) => void;
+  setUser: (user: UserProfile | null) => void;
 }
 
-export const defaultUserProfile: UserProfile = {
-  firstName: "JOHN",
-  lastName: "doe",
-  email: "EXAMPLE@GMAIL.COM",
-  address: "4, Anthony Villa, Um...",
-  avatar: "/images/profile-avatar.png",
-};
+/** Re-export for compatibility with components expecting fallback mock data */
+export const defaultUserProfile: UserProfile = dummyUserProfile;
 
 export const useAuthStore = create<AuthState>()(
   persist(
@@ -26,14 +23,11 @@ export const useAuthStore = create<AuthState>()(
       user: null,
 
       login: (user) => {
-        const mergedUser = {
-          ...defaultUserProfile,
-          ...user,
-        };
+        const targetUser = user || dummyUserProfile;
         if (typeof document !== "undefined") {
           document.cookie = "u2gas_logged_in=true; path=/; max-age=2592000";
         }
-        set({ isLoggedIn: true, user: mergedUser });
+        set({ isLoggedIn: true, user: targetUser });
       },
 
       logout: () => {
@@ -49,12 +43,18 @@ export const useAuthStore = create<AuthState>()(
 
       updateUser: (data) => {
         set((state) => ({
-          user: state.user ? { ...state.user, ...data } : { ...defaultUserProfile, ...data },
+          user: state.user
+            ? { ...state.user, ...data }
+            : { ...dummyUserProfile, ...data },
         }));
+      },
+
+      setUser: (user) => {
+        set({ user, isLoggedIn: Boolean(user) });
       },
     }),
     {
       name: "u2gas_auth_store",
-    }
-  )
+    },
+  ),
 );

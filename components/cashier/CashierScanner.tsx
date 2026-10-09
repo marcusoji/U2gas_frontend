@@ -19,9 +19,8 @@ export default function CashierScanner() {
   const [scanStatus, setScanStatus] = useState<"idle" | "success" | "failed">(
     "idle",
   );
-  const [scannedResult, setScannedResult] = useState<CashierScanResultData | null>(
-    null,
-  );
+  const [scannedResult, setScannedResult] =
+    useState<CashierScanResultData | null>(null);
   const [isManualModalOpen, setIsManualModalOpen] = useState(false);
   const qrScannerRef = useRef<Html5Qrcode | null>(null);
 
@@ -157,9 +156,8 @@ export default function CashierScanner() {
 
   return (
     <div className="w-full flex flex-col items-center select-none">
-      {/* ──────────────── SCANNER VIEWPORT FRAME ──────────────── */}
       <div
-        className="relative w-[260px] sm:w-[280px] aspect-[4/5] max-w-[80vw] flex items-center justify-center my-2"
+        className="relative w-[260px] sm:w-70 aspect-4/5 max-w-[80vw] flex items-center justify-center my-2"
         style={{ aspectRatio: "4 / 5" }}
       >
         {/* Frame graphic (Border pattern matching mockup) */}

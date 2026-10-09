@@ -146,8 +146,11 @@ export default function GasTerminal({
           </div>
         </div>
 
-        <div className="w-full bg-brand-primary rounded-[16px] pt-7 pb-6 px-10 relative shadow-[0_12px_36px_rgba(19,23,228,0.35),0_4px_12px_rgba(0,0,0,0.18)] flex flex-col items-center overflow-hidden">
-          <div className="absolute inset-2 rounded-[8px] border border-black/30 pointer-events-none z-10" />
+        <div className="w-full bg-brand-primary rounded-[18px] pt-7 pb-6 px-10 relative shadow-[0_12px_36px_rgba(19,23,228,0.35),0_4px_12px_rgba(0,0,0,0.18)] flex flex-col items-center overflow-hidden">
+          {/* Authentic tactile stipple noise overlay for blue plastic body */}
+          <div className="absolute inset-0 noise-texture opacity-48 mix-blend-overlay pointer-events-none z-0" />
+
+          <div className="absolute inset-2 rounded-[10px] border border-black/30 pointer-events-none z-10" />
           <div className="text-xl tracking-wider text-light-gray uppercase mb-2.5 z-10">
             AMOUNT IN NAIRA
           </div>
@@ -160,7 +163,7 @@ export default function GasTerminal({
           <TerminalKeyboard onKeyPress={handleKeyPress} />
           {/* Receipt / Card Slot Bar */}
           <div className="w-53 h-3.75 bg-linear-to-b from-[#505054] via-[#b8b8bc] via-45% to-[#ceced2] rounded-[6px] border border-black flex items-center justify-center z-10 relative overflow-hidden">
-            <div className="absolute inset-0 opacity-35 mix-blend-multiply noise-texture pointer-events-none" />
+            <div className="absolute inset-0 opacity-40 mix-blend-multiply noise-texture pointer-events-none" />
             <div className="w-[calc(100%-12px)] h-[2.5px] bg-black rounded-[1px] relative z-10" />
           </div>
 

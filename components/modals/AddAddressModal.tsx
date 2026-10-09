@@ -3,7 +3,8 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MapPin, X } from "lucide-react";
-import { useAuthStore, defaultUserProfile } from "@/stores/authStore";
+import { useAuthStore } from "@/stores/authStore";
+import { dummyUserProfile } from "@/data";
 
 export interface AddAddressModalProps {
   open: boolean;
@@ -18,7 +19,7 @@ export default function AddAddressModal({
   onAddressSaved,
   initialAddress,
 }: AddAddressModalProps) {
-  const user = useAuthStore((state) => state.user) || defaultUserProfile;
+  const user = useAuthStore((state) => state.user) || dummyUserProfile;
   const updateUser = useAuthStore((state) => state.updateUser);
   const [addressInput, setAddressInput] = useState(
     initialAddress ?? user.address ?? "",

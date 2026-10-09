@@ -63,8 +63,8 @@ export default function CashierTerminal({
     >
       {/* ──────────────── CASHIER GREY TERMINAL BODY ──────────────── */}
       <div className="w-full bg-[#858587] rounded-[24px] pt-6 pb-7 px-8 relative shadow-[0_12px_32px_rgba(0,0,0,0.12),0_4px_12px_rgba(0,0,0,0.06),inset_0_1px_2px_rgba(255,255,255,0.85)]  flex flex-col items-center overflow-hidden">
-        {/* Subtle speckled/noise texture overlay */}
-        <div className="absolute inset-0 opacity-20 mix-blend-multiply noise-texture pointer-events-none" />
+        {/* Authentic tactile stipple noise overlay */}
+        <div className="absolute inset-0 noise-texture opacity-28 mix-blend-overlay pointer-events-none z-0" />
 
         {/* Inner Border Line (similar to original POS style) */}
         <div className="absolute inset-2.5 rounded-[16px] border border-black/15 pointer-events-none z-10" />

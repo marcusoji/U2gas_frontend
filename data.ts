@@ -1,4 +1,5 @@
 import type {
+  UserProfile,
   Product,
   ReceiptItem,
   HistoryReceipt,
@@ -14,6 +15,39 @@ import type {
   DriverDeliveryStatusTab,
   CashierTransactionItem,
 } from "@/types";
+
+export const dummyUserProfile: UserProfile = {
+  firstName: "JOHN",
+  lastName: "doe",
+  email: "EXAMPLE@GMAIL.COM",
+  address: "4, Anthony Villa, Um...",
+  avatar: "/images/profile-avatar.png",
+};
+
+export const dummyUsers: UserProfile[] = [
+  dummyUserProfile,
+  {
+    firstName: "SARAH",
+    lastName: "connor",
+    email: "SARAH.C@U2GAS.COM",
+    address: "12, Marina Road, Victoria Island, Lagos",
+    avatar: "/images/staff-avatar-3.png",
+  },
+  {
+    firstName: "MICHAEL",
+    lastName: "drake",
+    email: "M.DRAKE@U2GAS.COM",
+    address: "7, Airport Road, Ikeja, Lagos",
+    avatar: "/images/staff-avatar-3.png",
+  },
+  {
+    firstName: "CHIDINMA",
+    lastName: "okafor",
+    email: "CHIDI.O@U2GAS.COM",
+    address: "24, Awolowo Road, Ikoyi, Lagos",
+    avatar: "/images/profile-avatar.png",
+  },
+];
 
 export const products: Product[] = [
   {
